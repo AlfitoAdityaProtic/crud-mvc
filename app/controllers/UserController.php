@@ -11,18 +11,30 @@ class UserController {
 
     public function index() {
         $users = $this->userModel->getAllUsers();
-        require_once '../app/views/user/index.php';
+        require_once '../app/views/data_pelatihan/index.php';
 
     }
 
     public function create() {
-        require_once '../app/views/user/create.php';
+
+        
+        // $data = [
+        //     'id_pelatihan' => $_POST['id_pelatihan'],
+        //     'nama' => $_POST['nama'],
+        //     'keterangan' => $_POST['keterangan']
+        // ];
+
+	    // if($this->userModel->insertDataPelatihan($data)) {
+        //     header('location:/data_pelatihan/index.php');
+        // }
+        require_once '../app/views/data_pelatihan/create.php';
     }
 
-    public function store() {
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $this->userModel->addUser($name, $email);
-        header('Location: /user/index');
+    public function updateDataPelatihan() {
+        $id_pelatihan = $_POST['id_pelatihan'];
+        $nama = $_POST['nama'];
+        $keterangan = $_POST['keterangan'];
+        $this->userModel->InsertDataPelatihan( $id_pelatihan, $nama, $keterangan);
+        header('Location: /data_pelatihan/index');
     }
 }

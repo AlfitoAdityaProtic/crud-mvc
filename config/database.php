@@ -1,19 +1,18 @@
 <?php
 // config/database.php
-class Database {
+class Database
+{
     private $host = 'localhost';
     private $db_name = 'karyawan';
     private $username = 'root';
     private $password = '';
     private $conn;
 
-    public function connect() {
-        $this->conn = null;
-        try {
-            $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->password);
-            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch(PDOException $e) {
-            echo "Connection error: " . $e->getMessage();
+    public function connect()
+    {
+        $this->conn = new mysqli($this->host, $this->username, $this->password, $this->db_name);
+        if ($this->conn->connect_error) {
+            die("Koneksi Database Gagal : " . $this->conn->connect_error);
         }
         return $this->conn;
     }

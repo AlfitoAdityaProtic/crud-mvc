@@ -7,12 +7,12 @@ $controller = new UserController();
 
 $url = $_SERVER['REQUEST_URI'];
 
-if ($url == '/user/index' || $url == '/') {
+if ($url == '/data_pelatihan/index' || $url == '/') {
     $controller->index();
-} elseif ($url == '/user/create') {
+} elseif ($url == '/data_pelatihan/create') {
     $controller->create();
-} elseif ($url == '/user/store') {
-    $controller->store();
+} elseif ($url == '/data_pelatihan/store') {
+    $controller->updateDataPelatihan();
 } else {
     echo "404 Not Found";
 }
