@@ -32,11 +32,11 @@ class Departemen {
 
     public function update() {
         $this->DepartemenModel->updateDepartemen();
-        header('location: /data_pelatihan/index');
+        header('location: /departemen/index');
     }
 
-    public function delete($id_pelatihan){
-        $this->DepartemenModel->deleteDepartemen($id_pelatihan);
+    public function delete($id_departemen){
+        $this->DepartemenModel->deleteDepartemen($id_departemen);
         header('location: /departemen/index');
     }
 }

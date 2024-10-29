@@ -24,7 +24,7 @@ class DepartemenModels Extends Database {
     }
 
     public function updateDepartemen(){
-        $query = $this->conn->query("UPDATE data_pelatihan SET nama_departemen = '$_POST[nama_departemen]', job_desk = '$_POST[job_desk]' WHERE id_departemen = '$_POST[id_departemen]'");
+        $query = $this->conn->query("UPDATE data_departemen SET nama_departemen = '$_POST[nama_departemen]', job_desk = '$_POST[job_desk]' WHERE id_departemen = '$_POST[id_departemen]'");
         return $query;
     }
 

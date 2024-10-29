@@ -9,6 +9,8 @@
     <h1>Edit Data Departemen</h1>
 
     <form action="/departemen/update" method="post">
+        <input type="hidden" name="id_departemen" value="<?= $DataDepartemen['id_departemen']; ?>">
+
         <label for="nama_departemen">Nama Departemen</label>
         <input type="text" name="nama_departemen" value="<?= $DataDepartemen['nama_departemen']; ?>">
         
