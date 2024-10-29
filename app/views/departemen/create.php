@@ -9,8 +9,6 @@
     <h1>Tambah Departemen Karyawan</h1>
 
     <form action="/departemen/store" method="post">
-        <label for="id_departemen">ID Departemen</label>
-        <input type="text" name="id_departemen" id="id_departemen" required>
         
         <label for="nama_departemen">Nama Departemen</label>
         <input type="text" name="nama_departemen" id="nama_departemen" required>

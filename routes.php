@@ -23,7 +23,8 @@ if ($url == '/data_pelatihan/index' || $url == '/') { //data pelatihan start
 } elseif (preg_match('/\/data_pelatihan\/delete\/(\d+)/', $url, $matches)) {
     $id_pelatihan = $matches[1];
     $controller->delete($id_pelatihan); // data pelatihan end
-}elseif ($url == '/departemen/index') { // departemen start
+}
+elseif ($url == '/departemen/index') { // departemen start
     $controller2->index();
 }elseif ($url == '/departemen/create') {
     $controller2->create();

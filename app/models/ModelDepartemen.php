@@ -14,7 +14,7 @@ class DepartemenModels Extends Database {
     }
     
     public function tambahDepartemen(){
-        $query = $this->conn->query("INSERT INTO data_departemen (id_departemen, nama_departemen, job_desk) VALUES ('$_POST[id_departemen]', '$_POST[nama_departemen]', '$_POST[job_desk]')");
+        $query = $this->conn->query("INSERT INTO data_departemen (nama_departemen, job_desk) VALUES ('$_POST[nama_departemen]', '$_POST[job_desk]')");
         return $query;
     }
 

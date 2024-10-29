@@ -13,7 +13,6 @@
     <table style="font-family: verdana"  class="table table-bordered border-primary max-w-xl mx-auto">
         <tr class="table-active table-success">
             <th class="text-center">No.</th>
-			<th class="text-center">Id Pelatihan</th>
 			<th class="text-center">Nama</th>
 			<th class="text-center">Keterangan</th>
 			<th class="text-center">Aksi</th>
@@ -25,7 +24,6 @@
         ?>
         <tr>
             <td class="text-center"><?php echo $no++; ?></td>
-            <td class="text-center"><?php echo $row['id_pelatihan']; ?></td>
             <td class="text-center"><?php echo $row['nama']; ?></td>
             <td class="text-center"><?php echo $row['keterangan']; ?></td>
             <td class="text-center">

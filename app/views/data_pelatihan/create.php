@@ -9,8 +9,6 @@
     <h1>Tambah Data Pelatihan</h1>
 
     <form action="/data_pelatihan/store" method="post">
-        <label for="id_pelatihan">ID Pelatihan</label>
-        <input type="text" name="id_pelatihan" id="id_pelatihan" required>
         
         <label for="nama">Nama</label>
         <input type="text" name="nama" id="nama" required>

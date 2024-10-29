@@ -14,7 +14,7 @@ class DataPelatihanModels Extends Database {
     }
     
     public function tambahDataPelatihan(){
-        $query = $this->conn->query("INSERT INTO data_pelatihan (id_pelatihan, nama, keterangan) VALUES ('$_POST[id_pelatihan]', '$_POST[nama]', '$_POST[keterangan]')");
+        $query = $this->conn->query("INSERT INTO data_pelatihan (nama, keterangan) VALUES ('$_POST[nama]', '$_POST[keterangan]')");
         return $query;
     }
 
