@@ -29,8 +29,8 @@
             <td class="text-center"><?php echo $row['nama']; ?></td>
             <td class="text-center"><?php echo $row['keterangan']; ?></td>
             <td class="text-center">
-                <a href="/data_pelatihan/edit?id=<?php echo $row['id_pelatihan']; ?>" class="btn btn-warning">Edit</a>
-                <a href="/data_pelatihan/delete?id=<?php echo $row['id_pelatihan']; ?>" class="btn btn-danger">Delete</a>
+                <a href="/data_pelatihan/edit/<?php echo $row['id_pelatihan']; ?>" class="btn btn-warning">Edit</a>
+                <a href="/data_pelatihan/delete/<?php echo $row['id_pelatihan']; ?>" class="btn btn-danger">Delete</a>
             </td>
         </tr>
         <?php 

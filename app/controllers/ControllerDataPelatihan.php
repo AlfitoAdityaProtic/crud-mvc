@@ -32,11 +32,11 @@ class DataPelatihan {
 
     public function update() {
         $this->DataModel->updateDataPelatihan();
-        header('location: /data_pelatihan');
+        header('location: /data_pelatihan/index');
     }
 
     public function delete($id_pelatihan){
         $this->DataModel->deleteDataPelatihan($id_pelatihan);
-        header('location: /data_pelatihan');
+        header('location: /data_pelatihan/index');
     }
 }

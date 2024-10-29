@@ -10,13 +10,13 @@
 
     <form action="/data_pelatihan/store" method="post">
         <label for="id_pelatihan">ID Pelatihan</label>
-        <input type="text" name="id_pelatihan" value="<?= $data['id_pelatihan'];?>">
+        <input type="text" name="id_pelatihan" value="<?= $DataPelatihan['id_pelatihan'];?>">
 
         <label for="nama">Nama</label>
-        <input type="text" name="nama" value="<?= $data['nama']; ?>">
+        <input type="text" name="nama" value="<?= $DataPelatihan['nama']; ?>">
         
         <label for="keterangan">Keterangan</label> 
-        <input type="text" name="keterangan" value="<?= $data['keterangan']; ?>">
+        <input type="text" name="keterangan" value="<?= $DataPelatihan['keterangan']; ?>">
 
         <button type="submit">Simpan</button>
     </form>
