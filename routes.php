@@ -1,18 +1,20 @@
 <?php
 // routes.php
 
-require_once 'app/controllers/UserController.php';
+require_once 'app/controllers/ControllerDataPelatihan.php';
 
-$controller = new UserController();
+$controller = new DataPelatihan();
 
 $url = $_SERVER['REQUEST_URI'];
 
 if ($url == '/data_pelatihan/index' || $url == '/') {
     $controller->index();
-} elseif ($url == '/data_pelatihan/create') {
+}elseif ($url == '/data_pelatihan/create') {
     $controller->create();
 } elseif ($url == '/data_pelatihan/store') {
-    $controller->updateDataPelatihan();
-} else {
-    echo "404 Not Found";
+    $controller->store();
+} elseif ($url == '/data_pelatihan/edit/:id') {
+    $controller->edit($_GET['id']);
+} elseif ($url == '/data_pelatihan/update') {
+    $controller->update();
 }

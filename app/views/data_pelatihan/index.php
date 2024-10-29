@@ -16,17 +16,22 @@
 			<th class="text-center">Id Pelatihan</th>
 			<th class="text-center">Nama</th>
 			<th class="text-center">Keterangan</th>
+			<th class="text-center">Aksi</th>
+
         </tr>
         <?php
         $no = 1;
-        foreach($users as $row){
+        foreach($DataPelatihan as $row){
         ?>
         <tr>
             <td class="text-center"><?php echo $no++; ?></td>
             <td class="text-center"><?php echo $row['id_pelatihan']; ?></td>
             <td class="text-center"><?php echo $row['nama']; ?></td>
             <td class="text-center"><?php echo $row['keterangan']; ?></td>
-            
+            <td>
+                <a href="/data_pelatihan/edit?id=<?php echo $row['id_pelatihan']; ?>" class="btn btn-warning">Edit</a>
+                <a href="/data_pelatihan/delete?id=<?php echo $row['id_pelatihan']; ?>" class="btn btn-danger">Delete</a>
+            </td>
         </tr>
         <?php 
         } 

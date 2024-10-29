@@ -1,86 +1,25 @@
-<!-- app/views/data_pelatihan/create.php -->
- <?php 
- require './app/controllers/UserController.php';
- ?>
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Input Data Pelatihan</title>
-
-    <link href="style/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style/style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Tambah Data Pelatihan</title>
 </head>
-
 <body>
-    <!-- <nav class="navbar navbar-default navbar-fixed-top">
-						<div class="container-fluid">
-								<div class="navbar-header">
-										<a class="navbar-brand" href="index.php">
-												<i class="glyphicon glyphicon-check"></i>
-													Aplikasi CRUD PHP Menggunakan Metode MVC
-										</a>
-								</div>
-						</div>
-				</nav> -->
+    <h1>Tambah Data Pelatihan</h1>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="page-header">
-                    <h4>
-                        <i class="glyphicon glyphicon-check"></i> Input Data Pelatihan
-                    </h4>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Input Data Pelatihan</h3>
-                    </div>
+    <form action="/data_pelatihan/store" method="post">
+        <label for="id_pelatihan">ID Pelatihan</label>
+        <input type="text" name="id_pelatihan" id="id_pelatihan" required>
+        
+        <label for="nama">Nama</label>
+        <input type="text" name="nama" id="nama" required>
+        
+        <label for="keterangan">Keterangan</label>
+        <input type="text" name="keterangan" id="keterangan" required>
+        
+        <button type="submit">Simpan</button>
 
-                    <div class="panel-body">
-                        <div class="modal-body">
-                            <form action="/data_pelatihan/store" method="POST">
-
-                                <div class="form-group">
-                                    <label>ID Pelatihan</label>
-                                    <input type="number" class="form-control" name="id_pelatihan" maxlength="10" required />
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Nama Karyawan</label>
-                                    <input type="text" class="form-control" name="nama" autocomplete="off" required />
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Keterangan</label>
-                                    <input type="text" class="form-control" name="keterangan" autocomplete="off" required />
-                                </div>
-
-                                <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <footer class="footer">
-        <div class="container-fluid">
-            <p class="text-muted pull-left">&copy; 2017 <a href="https://www.linkedin.com/in/fattahul-akbar-80a109139/" target="_blank">Fattahul Akbar</a></p>
-        </div>
-    </footer>
+    </form>
 </body>
-
 </html>
-
-<?php
-
-if (isset($_POST['simpan'])) {
-    $main = new UserController();
-    $main->create();
-}
-
-?>
