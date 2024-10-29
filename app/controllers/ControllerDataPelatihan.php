@@ -15,11 +15,6 @@ class DataPelatihan {
 
     }
 
-/*************  ✨ Codeium Command ⭐  *************/
-    /**
-     * Loads the view for creating a new data pelatihan entry.
-     */
-/******  ad063929-b4cd-497f-ba15-f6ae10138647  *******/
     public function create() {
         require_once '../app/views/data_pelatihan/create.php';
     }
@@ -37,6 +32,11 @@ class DataPelatihan {
 
     public function update() {
         $this->DataModel->updateDataPelatihan();
+        header('location: /data_pelatihan');
+    }
+
+    public function delete($id_pelatihan){
+        $this->DataModel->deleteDataPelatihan($id_pelatihan);
         header('location: /data_pelatihan');
     }
 }
