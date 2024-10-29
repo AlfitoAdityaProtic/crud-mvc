@@ -8,7 +8,7 @@
 <body>
     <h1>Edit Data Pelatihan</h1>
 
-    <form action="/data_pelatihan/store" method="post">
+    <form action="/data_pelatihan/update" method="post">
         <label for="id_pelatihan">ID Pelatihan</label>
         <input type="text" name="id_pelatihan" value="<?= $DataPelatihan['id_pelatihan'];?>">
 

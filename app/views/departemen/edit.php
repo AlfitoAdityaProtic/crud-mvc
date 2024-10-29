@@ -8,15 +8,12 @@
 <body>
     <h1>Edit Data Departemen</h1>
 
-    <form action="/departemen/store" method="post">
-        <label for="id_pelatihan">ID Departemen</label>
-        <input type="text" name="id_departemen" value="<?= $data['id_departemen'];?>">
-
+    <form action="/departemen/update" method="post">
         <label for="nama_departemen">Nama Departemen</label>
-        <input type="text" name="nama_departemen" value="<?= $data['nama_departemen']; ?>">
+        <input type="text" name="nama_departemen" value="<?= $DataDepartemen['nama_departemen']; ?>">
         
         <label for="job_desk">Tugas Departemen</label> 
-        <input type="text" name="job_desk" value="<?= $data['job_desk']; ?>">
+        <input type="text" name="job_desk" value="<?= $DataDepartemen['job_desk']; ?>">
 
         <button type="submit">Simpan</button>
     </form>

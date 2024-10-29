@@ -13,7 +13,6 @@
     <table style="font-family: verdana"  class="table table-bordered border-primary max-w-xl mx-auto">
         <tr class="table-active table-success">
             <th class="text-center">No.</th>
-			<th class="text-center">Id Departemen</th>
 			<th class="text-center">Nama Departemen</th>
 			<th class="text-center">Tugas Departemen</th>
 			<th class="text-center">Aksi</th>
@@ -25,12 +24,11 @@
         ?>
         <tr>
             <td class="text-center"><?php echo $no++; ?></td>
-            <td class="text-center"><?php echo $row['id_departemen']; ?></td>
             <td class="text-center"><?php echo $row['nama_departemen']; ?></td>
             <td class="text-center"><?php echo $row['job_desk']; ?></td>
             <td class="text-center">
-                <a href="/data_pelatihan/edit?id=<?php echo $row['id_departemen']; ?>" class="btn btn-warning">Edit</a>
-                <a href="/data_pelatihan/delete?id=<?php echo $row['id_departemen']; ?>" class="btn btn-danger">Delete</a>
+                <a href="/departemen/edit/<?php echo $row['id_departemen']; ?>" class="btn btn-warning">Edit</a>
+                <a href="/departemen/delete/<?php echo $row['id_departemen']; ?>" class="btn btn-danger">Delete</a>
             </td>
         </tr>
         <?php 

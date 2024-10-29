@@ -2,12 +2,14 @@
 // routes.php
 
 require_once 'app/controllers/ControllerDataPelatihan.php';
+require_once 'app/controllers/ControllerDepartemen.php';
 
 $controller = new DataPelatihan();
+$controller2 = new Departemen();
 
 $url = $_SERVER['REQUEST_URI'];
 
-if ($url == '/data_pelatihan/index' || $url == '/') {
+if ($url == '/data_pelatihan/index' || $url == '/') { //data pelatihan start
     $controller->index();
 }elseif ($url == '/data_pelatihan/create') {
     $controller->create();
@@ -20,21 +22,19 @@ if ($url == '/data_pelatihan/index' || $url == '/') {
     $controller->update();
 } elseif (preg_match('/\/data_pelatihan\/delete\/(\d+)/', $url, $matches)) {
     $id_pelatihan = $matches[1];
-    $controller->delete($id_pelatihan);
+    $controller->delete($id_pelatihan); // data pelatihan end
+}elseif ($url == '/departemen/index') { // departemen start
+    $controller2->index();
+}elseif ($url == '/departemen/create') {
+    $controller2->create();
+} elseif ($url == '/departemen/store') {
+    $controller2->store();
+} elseif (preg_match('/\/departemen\/edit\/(\d+)/', $url, $matches)) {
+    $id_departemen = $matches[1];
+    $controller2->edit($id_departemen);
+}elseif ($url == '/departemen/update') {
+    $controller2->update();
+} elseif (preg_match('/\/departemen\/delete\/(\d+)/', $url, $matches)) {
+    $id_departemen = $matches[1];
+    $controller2->delete($id_departemen); // departemen end
 }
-
-// $controller2 = new Departemen();
-
-// $url2 = $_SERVER['REQUEST_URI'];q
-
-// if ($url2 == '/departemen/index' || $url2 == '/') {
-//     $controller2->index();
-// }elseif ($url2 == '/departemen/create') {
-//     $controller2->create();
-// } elseif ($url2 == '/departemen/store') {
-//     $controller2->store();
-// } elseif ($url2 == '/departemen/edit/:id') {
-//     $controller2->edit($_GET['id']);
-// } elseif ($url2 == '/departemen/update') {
-//     $controller2->update();
-// }
