@@ -4,10 +4,12 @@
 require_once 'app/controllers/ControllerDataPelatihan.php';
 require_once 'app/controllers/ControllerDepartemen.php';
 require_once 'app/controllers/ControllerAbsensi.php';
+require_once 'app/controllers/ControllerKaryawan.php';
 
 $controller = new DataPelatihan();
 $controller2 = new Departemen();
 $controller3 = new DataAbsensi();
+$controller4 = new DataKaryawan();
 
 $url = $_SERVER['REQUEST_URI'];
 
@@ -55,5 +57,20 @@ elseif ($url == '/absensi/index') { // absensi start
 } elseif (preg_match('/\/absensi\/delete\/(\d+)/', $url, $matches)) {
     $id_absensi = $matches[1];
     $controller3->delete($id_absensi); // absensi end
+}
+elseif ($url == '/karyawan/index') { // karyawan start
+    $controller4->index();
+}elseif ($url == '/karyawan/create') {
+    $controller4->create();
+} elseif ($url == '/karyawan/store') {
+    $controller4->store();
+} elseif (preg_match('/\/karyawan\/edit\/(\d+)/', $url, $matches)) {
+    $id_karyawan = $matches[1];
+    $controller4->edit($id_karyawan);
+}elseif ($url == '/karyawan/update') {
+    $controller4->update();
+} elseif (preg_match('/\/karyawan\/delete\/(\d+)/', $url, $matches)) {
+    $id_karyawan = $matches[1];
+    $controller4->delete($id_karyawan); // karyawan end
 }
 
