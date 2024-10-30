@@ -10,7 +10,7 @@ class DataAbsensiModels extends Database {
 
     public function tampilAbsensi() {
         $query = $this->conn->prepare("SELECT absensi_karyawan.id_absensi, absensi_karyawan.tanggal_dan_waktu, absensi_karyawan.status, absensi_karyawan.keterangan, 
-                                               data_karyawan.nama, data_karyawan.jabatan, data_karyawan.no_hp, data_karyawan.email, data_karyawan.id_departemen
+                                               data_karyawan.nama, data_karyawan.jabatan, data_karyawan.noHP, data_karyawan.email, data_karyawan.id_departemen
                                         FROM absensi_karyawan
                                         JOIN data_karyawan ON absensi_karyawan.id_karyawan = data_karyawan.id_karyawan");
         $query->execute(); // Eksekusi query

@@ -63,6 +63,6 @@ class PelatihanKaryawanModels extends Database {
 
     public function getKeteranganPelatihanKaryawan($id){
         $id_pelatihanKaryawan = $this->getDataPelatihanById($id);
-        return $id_pelatihanKaryawan['keterangan'];
+        return $id_pelatihanKaryawan['keterangan'];  
     }
 }
