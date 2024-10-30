@@ -10,9 +10,10 @@ class DataAbsensiModels Extends Database {
 
     public function tampilAbsensi() {
         $query = $this->conn->query("SELECT absensi_karyawan.id_absensi, absensi_karyawan.tanggal_dan_waktu, absensi_karyawan.status, absensi_karyawan.keterangan, 
-                                        data_karyawan.nama, data_karyawan.jabatan, data_karyawan.noHP, data_karyawan.email, data_karyawan.id_departemen
+                                        data_karyawan.nama, data_karyawan.jabatan, data_karyawan.noHP, data_karyawan.email, data_departemen.nama_departemen
                                  FROM absensi_karyawan
-                                 JOIN data_karyawan ON absensi_karyawan.id_karyawan = data_karyawan.id_karyawan");
+                                 JOIN data_karyawan ON absensi_karyawan.id_karyawan = data_karyawan.id_karyawan
+                                 JOIN data_departemen ON data_karyawan.id_departemen = data_departemen.id_departemen");
     return $query->fetchAll(PDO::FETCH_ASSOC);
     }
     
