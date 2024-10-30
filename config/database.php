@@ -2,10 +2,10 @@
 // config/database.php
 class Database
 {
-    private $host = 'localhost';
-    private $db_name = 'karyawan';
-    private $username = 'root';
-    private $password = '';
+    private $host = 'mdi.my.id';
+    private $db_name = 'basdeat2_klp3';
+    private $username = 'basdeat2_usr3';
+    private $password = 'w!ZG]A,$D6jhUQ2=JM';
     protected $conn;
 
     public function __construct() {

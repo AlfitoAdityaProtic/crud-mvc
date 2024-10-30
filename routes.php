@@ -3,9 +3,11 @@
 
 require_once 'app/controllers/ControllerDataPelatihan.php';
 require_once 'app/controllers/ControllerDepartemen.php';
+require_once 'app/controllers/ControllerAbsensi.php';
 
 $controller = new DataPelatihan();
 $controller2 = new Departemen();
+$controller3 = new DataAbsensi();
 
 $url = $_SERVER['REQUEST_URI'];
 
@@ -39,3 +41,19 @@ elseif ($url == '/departemen/index') { // departemen start
     $id_departemen = $matches[1];
     $controller2->delete($id_departemen); // departemen end
 }
+elseif ($url == '/absensi/index') { // absensi start
+    $controller3->index();
+}elseif ($url == '/absensi/create') {
+    $controller3->create();
+} elseif ($url == '/absensi/store') {
+    $controller3->store();
+} elseif (preg_match('/\/absensi\/edit\/(\d+)/', $url, $matches)) {
+    $id_absensi = $matches[1];
+    $controller3->edit($id_absensi);
+}elseif ($url == '/absensi/update') {
+    $controller3->update();
+} elseif (preg_match('/\/absensi\/delete\/(\d+)/', $url, $matches)) {
+    $id_absensi = $matches[1];
+    $controller3->delete($id_absensi); // absensi end
+}
+
