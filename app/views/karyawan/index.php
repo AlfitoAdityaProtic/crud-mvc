@@ -36,7 +36,7 @@
             <td class="text-center"><?php echo $row['id_departemen']; ?></td>
             <td class="text-center">
                 <a href="/karyawan/edit/<?php echo $row['id_karyawan']; ?>" class="btn btn-warning">Edit</a>
-                <a href="karyawan/delete/<?php echo $row['id_karyawan']; ?>" class="btn btn-danger">Delete</a>
+                <a href="/karyawan/delete/<?php echo $row['id_karyawan']; ?>" class="btn btn-danger">Delete</a>
             </td>
         </tr>
         <?php 

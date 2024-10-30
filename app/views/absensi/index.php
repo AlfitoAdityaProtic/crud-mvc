@@ -40,7 +40,7 @@
             <td class="text-center"><?php echo $row['keterangan']; ?></td>
             <td class="text-center">
                 <a href="/absensi/edit/<?php echo $row['id_absensi']; ?>" class="btn btn-warning">Edit</a>
-                <a href="absensi/delete/<?php echo $row['id_absensi']; ?>" class="btn btn-danger">Delete</a>
+                <a href="/absensi/delete/<?php echo $row['id_absensi']; ?>" class="btn btn-danger">Delete</a>
             </td>
         </tr>
         <?php 
