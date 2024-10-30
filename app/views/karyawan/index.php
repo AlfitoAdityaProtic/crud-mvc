@@ -89,9 +89,6 @@
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <a href="/karyawan/create" class="btn btn-primary">Tambah Data Karyawan</a>
-
-                    <!-- Search Bar -->
-                    <input type="text" id="searchInput" class="form-control" placeholder="Cari karyawan..." style="width: 30%;">
                 </div>
 
                 <div class="table-responsive">

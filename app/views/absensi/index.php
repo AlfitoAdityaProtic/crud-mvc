@@ -90,9 +90,6 @@
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <a href="/absensi/create" class="btn btn-primary">Tambah Data Absensi</a>
-
-                    <!-- Search Bar -->
-                    <input type="text" id="searchInput" class="form-control" placeholder="Cari absensi..." style="width: 30%;">
                 </div>
 
                 <div class="table-responsive">
@@ -128,7 +125,7 @@
                                     <td class="text-center"><?php echo $row['keterangan']; ?></td>
                                     <td class="text-center">
                                         <a href="/absensi/edit/<?php echo $row['id_absensi']; ?>" class="btn btn-warning btn-sm">Edit</a>
-                                        <a href="/absensi/delete/<?php echo $row['id_absensi']; ?>" class="btn btn-danger btn-sm">Delete</a>
+                                        <a href="/absensi/delete/<?php echo $row['id_absensi']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus Data Absen ini?');">Delete</a>
                                     </td>
                                 </tr>
                             <?php

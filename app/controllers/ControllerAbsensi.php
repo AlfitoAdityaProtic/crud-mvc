@@ -1,12 +1,15 @@
 <?php
 // app/controllers/UserController.php
 require_once '../app/models/ModelAbsensi.php';
+require_once '../app/models/ModelKaryawan.php';
 
 class DataAbsensi {
     private $AbsensiModel;
+    private $KaryawanModel;
 
     public function __construct() {
         $this->AbsensiModel = new DataAbsensiModels();
+        $this->KaryawanModel = new DataKaryawanModels();
     }
 
     public function index() {
@@ -16,6 +19,7 @@ class DataAbsensi {
     }
 
     public function create() {
+        $DataKaryawan = $this->KaryawanModel->tampilKaryawan();
         require_once '../app/views/absensi/create.php';
     }
 
@@ -25,7 +29,7 @@ class DataAbsensi {
     }
 
     public function edit($id_absensi) {  
-
+        $DataKaryawan = $this->KaryawanModel->tampilKaryawan();
         $DataAbsensi = $this->AbsensiModel->getAbsensiById($id_absensi);
         require_once '../app/views/absensi/edit.php';
     }

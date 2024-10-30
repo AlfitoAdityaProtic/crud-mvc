@@ -71,9 +71,6 @@
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <a href="/departemen/create" class="btn btn-primary">Tambah Departemen</a>
-
-                    <!-- Search Bar -->
-                    <input type="text" id="searchInput" class="form-control w-30" placeholder="Cari departemen..." style="width: 30%;">
                 </div>
 
                 <div class="table-responsive">
@@ -97,7 +94,7 @@
                                     <td class="text-center"><?php echo $row['job_desk']; ?></td>
                                     <td class="text-center">
                                         <a href="/departemen/edit/<?php echo $row['id_departemen']; ?>" class="btn btn-warning btn-sm">Edit</a>
-                                        <a href="/departemen/delete/<?php echo $row['id_departemen']; ?>" class="btn btn-danger btn-sm">Delete</a>
+                                        <a href="/departemen/delete/<?php echo $row['id_departemen']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus Departemen ini?');">Delete</a>
                                     </td>
                                 </tr>
                             <?php

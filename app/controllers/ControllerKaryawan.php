@@ -1,12 +1,15 @@
 <?php
 // app/controllers/UserController.php
 require_once '../app/models/ModelKaryawan.php';
+require_once '../app/models/ModelDepartemen.php';
 
 class DataKaryawan {
     private $KaryawanModel;
+    private $DepartemenModel;
 
     public function __construct() {
         $this->KaryawanModel = new DataKaryawanModels();
+        $this->DepartemenModel = new DepartemenModels();
     }
 
     public function index() {
@@ -16,7 +19,9 @@ class DataKaryawan {
     }
 
     public function create() {
+        $DataDepartemen = $this->DepartemenModel->tampilDepartemen();
         require_once '../app/views/karyawan/create.php';
+        
     }
 
     public function store() {
@@ -24,8 +29,8 @@ class DataKaryawan {
         header('location: index');
     }
 
-    public function edit($id_karyawan) {  
-
+    public function edit($id_karyawan) { 
+        $DataDepartemen = $this->DepartemenModel->tampilDepartemen();
         $DataKaryawan = $this->KaryawanModel->getKaryawanById($id_karyawan);
         require_once '../app/views/karyawan/edit.php';
     }

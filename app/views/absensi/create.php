@@ -43,10 +43,14 @@
                 <form action="/absensi/store" method="post">
 
                     <div class="mb-3">
-                        <label for="id_karyawan" class="form-label">ID Karyawan</label>
-                        <input type="text" name="id_karyawan" id="id_karyawan" class="form-control" required>
+                        <label for="id_karyawan" class="form-label">Karyawan</label>
+                        <select name="id_karyawan" id="id_karyawan" class="form-control">
+                            <option value="">Pilih Karyawan</option>
+                            <?php foreach ($DataKaryawan as $Karyawan) : ?>
+                                <option value="<?= $Karyawan['id_karyawan'] ?>"><?= $Karyawan['nama'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
-
                     <div class="mb-3">
                         <label for="tanggal_dan_waktu" class="form-label">Tanggal dan Waktu</label>
                         <input type="datetime-local" name="tanggal_dan_waktu" id="tanggal_dan_waktu" class="form-control" required>

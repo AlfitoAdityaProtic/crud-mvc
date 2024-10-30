@@ -43,8 +43,13 @@
                     <input type="hidden" name="id_absensi" value="<?= $DataAbsensi['id_absensi']; ?>">
 
                     <div class="mb-3">
-                        <label for="id_karyawan" class="form-label">Masukan Id Karyawan</label>
-                        <input type="text" name="id_karyawan" class="form-control" value="<?= $DataAbsensi['id_karyawan']; ?>" required>
+                        <label for="id_karyawan" class="form-label">Karyawan</label>
+                        <select name="id_karyawan" id="id_karyawan" class="form-control">
+                            <option value="">Pilih Karyawan</option>
+                            <?php foreach ($DataKaryawan as $Karyawan) : ?>
+                                <option value="<?= $Karyawan['id_karyawan'] ?>"><?= $Karyawan['nama'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
 
                     <div class="mb-3">
