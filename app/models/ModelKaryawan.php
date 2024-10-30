@@ -14,13 +14,13 @@ class DataKaryawanModels extends Database {
     }
 
     public function tambahDataKaryawan() {
-        $query = $this->conn->prepare("INSERT INTO data_karyawan (nama, jabatan, gaji, no_hp, email, id_karyawan, id_departemen, id_pelatihanKaryawan) VALUES (:nama, :jabatan, :gaji, :no_hp, :email, :id_karyawan, :id_departemen, :id_pelatihanKaryawan)");
+        $query = $this->conn->prepare("INSERT INTO data_karyawan (nama, jabatan, gaji, noHP, email, id_karyawan, id_departemen, id_pelatihanKaryawan) VALUES (:nama, :jabatan, :gaji, :noHP, :email, :id_karyawan, :id_departemen, :id_pelatihanKaryawan)");
 
         // Bind parameter
         $query->bindParam(':nama', $_POST['nama']);
         $query->bindParam(':jabatan', $_POST['jabatan']);
         $query->bindParam(':gaji', $_POST['gaji']);
-        $query->bindParam(':no_hp', $_POST['no_hp']);
+        $query->bindParam(':noHP', $_POST['noHP']);
         $query->bindParam(':email', $_POST['email']);
         $query->bindParam(':id_karyawan', $_POST['id_karyawan']);
         $query->bindParam(':id_departemen', $_POST['id_departemen']);
@@ -37,13 +37,13 @@ class DataKaryawanModels extends Database {
     }
 
     public function updateDataKaryawan() {
-        $query = $this->conn->prepare("UPDATE data_karyawan SET nama = :nama, jabatan = :jabatan, gaji = :gaji, no_hp = :no_hp, email = :email, id_karyawan = id_karyawan, id_departemen = :id_departemen, id_pelatihanKaryawan = :id_pelatihanKaryawan WHERE id_karyawan = :id");
+        $query = $this->conn->prepare("UPDATE data_karyawan SET nama = :nama, jabatan = :jabatan, gaji = :gaji, noHP = :noHP, email = :email, id_karyawan = id_karyawan, id_departemen = :id_departemen, id_pelatihanKaryawan = :id_pelatihanKaryawan WHERE id_karyawan = :id");
 
         // Bind parameter
         $query->bindParam(':nama', $_POST['nama']);
         $query->bindParam(':jabatan', $_POST['jabatan']);
         $query->bindParam(':gaji', $_POST['gaji']);
-        $query->bindParam(':no_hp', $_POST['no_hp']);
+        $query->bindParam(':noHP', $_POST['noHP']);
         $query->bindParam(':email', $_POST['email']);
         $query->bindParam(':id_karyawan', $_POST['id_karyawan']);
         $query->bindParam(':id_departemen', $_POST['id_departemen']);

@@ -18,8 +18,8 @@
         <label for="gaji">Gaji</label> 
         <input type="number" name="gaji" value="<?= $data_karyawan['gaji']; ?>">
 
-        <label for="no_hp">No HP</label> 
-        <input type="number" name="no_hp" value="<?= $data_karyawan['no_hp']; ?>">
+        <label for="noHP">No HP</label> 
+        <input type="number" name="noHP" value="<?= $data_karyawan['noHP']; ?>">
 
         <label for="email">Email</label> 
         <input type="text" name="email" value="<?= $data_karyawan['email']; ?>">

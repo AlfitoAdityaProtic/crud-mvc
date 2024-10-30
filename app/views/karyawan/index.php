@@ -199,7 +199,7 @@
                                 <td><?php echo htmlspecialchars($row['nama']); ?></td>
                                 <td><?php echo htmlspecialchars($row['jabatan']); ?></td>
                                 <td><?php echo htmlspecialchars($row['gaji']); ?></td>
-                                <td><?php echo htmlspecialchars($row['no_hp']); ?></td>
+                                <td><?php echo htmlspecialchars($row['noHP']); ?></td>
                                 <td><?php echo htmlspecialchars($row['email']); ?></td>
                                 <td><?php echo htmlspecialchars($this->DepartemenModels->getNamaDepartement($row['id_departemen'])); ?></td>
                                 <td><?php echo htmlspecialchars($this->PelatihanKaryawanModels->getKeteranganPelatihanKaryawan($row['id_pelatihanKaryawan'])); ?></td>

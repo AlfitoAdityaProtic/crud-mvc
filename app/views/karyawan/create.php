@@ -20,8 +20,8 @@
         <label for="gaji">Gaji:</label>
         <input type="number" id="gaji" name="gaji" required><br>
 
-        <label for="no_hp">No HP:</label>
-        <input type="number" id="no_hp" name="no_hp" required><br>
+        <label for="noHP">No HP:</label>
+        <input type="number" id="noHP" name="noHP" required><br>
 
         <label for="email">Email:</label>
         <input type="text" id="email" name="email" required><br>
