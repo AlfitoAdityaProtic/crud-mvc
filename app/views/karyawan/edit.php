@@ -8,29 +8,22 @@
 <body>
     <h1>Edit Data Karyawan</h1>
 
-    <form action="/data_karyawan/update" method="post">
-        <label for="id_karyawan">Id Karyawan:</label>
-        <input type="number" name="id_karyawan" value="<?= $data_karyawan['id_karyawan'];?>">
+    <form action="/karyawan/store" method="post">
+    <input type="hidden" name="id_karyawan" value="<?php echo $karyawan['id_karyawan']; ?>">
+    <label>Nama:</label>
+    <input type="text" name="nama" required>
+    <label>Jabatan:</label>
+    <input type="text" name="jabatan" required>
+    <label for="gaji">Gaji:</label>
+    <input type="number" name="gaji" required>
+    <label>No HP:</label>
+    <input type="text" name="noHP" required>
+    <label>Email:</label>
+    <input type="email" name="email" required>
+    <label>ID Departemen:</label>
+    <input type="number" name="id_departemen" required>
+    <button type="submit">Update</button>
+</form>
 
-        <label for="nama">Nama</label>
-        <input type="text" name="nama" value="<?= $data_karyawan['nama']; ?>">
-        
-        <label for="gaji">Gaji</label> 
-        <input type="number" name="gaji" value="<?= $data_karyawan['gaji']; ?>">
-
-        <label for="no_hp">No HP</label> 
-        <input type="number" name="no_hp" value="<?= $data_karyawan['no_hp']; ?>">
-
-        <label for="email">Email</label> 
-        <input type="text" name="email" value="<?= $data_karyawan['email']; ?>">
-
-        <label for="id_departemen">Id departemen</label> 
-        <input type="number" name="number" value="<?= $data_karyawan['id_departemen']; ?>">
-
-        <label for="id_pelatihanKaryawan">Id pelatihan karyawan</label> 
-        <input type="number" name="id_pelatihanKaryawan" value="<?= $data_karyawan['id_pelatihanKaryawan']; ?>">
-
-        <button type="submit">Simpan</button>
-    </form>
 </body>
 </html>

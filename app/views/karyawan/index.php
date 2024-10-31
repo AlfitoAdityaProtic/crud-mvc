@@ -178,14 +178,12 @@
                 <thead>
                     <tr class="table-active table-success">
                         <th>No</th>
-                        <th>Id Karyawan</th>
                         <th>Nama</th>
                         <th>Jabatan</th>
                         <th>Gaji</th>
                         <th>No Hp</th>
                         <th>Email</th>
                         <th>Nama Departeman</th>
-                        <th>Status Pelatihan</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -195,14 +193,12 @@
                         foreach ($data_karyawan as $row): ?>
                             <tr>
                                 <td><?php echo $no++; ?></td>
-                                <td><?php echo htmlspecialchars($row['id_karyawan']); ?></td>
-                                <td><?php echo htmlspecialchars($row['nama']); ?></td>
-                                <td><?php echo htmlspecialchars($row['jabatan']); ?></td>
-                                <td><?php echo htmlspecialchars($row['gaji']); ?></td>
-                                <td><?php echo htmlspecialchars($row['no_hp']); ?></td>
-                                <td><?php echo htmlspecialchars($row['email']); ?></td>
-                                <td><?php echo htmlspecialchars($this->DepartemenModels->getNamaDepartement($row['id_departemen'])); ?></td>
-                                <td><?php echo htmlspecialchars($this->PelatihanKaryawanModels->getKeteranganPelatihanKaryawan($row['id_pelatihanKaryawan'])); ?></td>
+                                <td><?php echo $row['nama']; ?></td>
+                                <td><?php echo $row['jabatan']; ?></td>
+                                <td><?php echo $row['gaji']; ?></td>
+                                <td><?php echo $row['noHP']; ?></td>
+                                <td><?php echo $row['email']; ?></td>
+                                <td><?php echo $row['nama_departemen']; ?></td>
                                 <td>
                                     <a href="/karyawan/edit/<?php echo $row['id_karyawan']; ?>" class="btn-warning">Edit</a>
                                     <a href="/karyawan/delete/<?php echo $row['id_karyawan']; ?>" class="btn-danger">Delete</a>
