@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <title>Data Absensi</title>
+    <title>Kelompok 3</title>
     <style>
         /* Gaya untuk dark mode */
         body.dark-mode {
@@ -85,55 +85,10 @@
 
     <!-- Content Start -->
     <div class="container mt-4">
-        <h1 class="pb-4 text-center">Data Absensi</h1>
+        <h1 class="pb-4 text-start">Kelompok 4 Karyawan</h1>
         <div class="card">
             <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <a href="/absensi/create" class="btn btn-primary">Tambah Data Absensi</a>
-                </div>
-
-                <div class="table-responsive">
-                    <table class="table table-striped table-bordered" id="absensiTable">
-                        <thead class="table-light">
-                            <tr>
-                                <th class="text-center">No.</th>
-                                <th class="text-center">Nama</th>
-                                <th class="text-center">Jabatan</th>
-                                <th class="text-center">No HP</th>
-                                <th class="text-center">Email</th>
-                                <th class="text-center">Departemen</th>
-                                <th class="text-center">Tanggal dan Waktu</th>
-                                <th class="text-center">Status</th>
-                                <th class="text-center">Keterangan</th>
-                                <th class="text-center">Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            $no = 1;
-                            foreach ($DataAbsensi as $row) {
-                            ?>
-                                <tr>
-                                    <td class="text-center"><?php echo $no++; ?></td>
-                                    <td class="text-center"><?php echo $row['nama']; ?></td>
-                                    <td class="text-center"><?php echo $row['jabatan']; ?></td>
-                                    <td class="text-center"><?php echo $row['noHP']; ?></td>
-                                    <td class="text-center"><?php echo $row['email']; ?></td>
-                                    <td class="text-center"><?php echo $row['nama_departemen']; ?></td>
-                                    <td class="text-center"><?php echo $row['tanggal_dan_waktu']; ?></td>
-                                    <td class="text-center"><?php echo $row['status']; ?></td>
-                                    <td class="text-center"><?php echo $row['keterangan']; ?></td>
-                                    <td class="text-center">
-                                        <a href="/absensi/edit/<?php echo $row['id_absensi']; ?>" class="btn btn-warning btn-sm">Edit</a>
-                                        <a href="/absensi/delete/<?php echo $row['id_absensi']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus Data Absen ini?');">Delete</a>
-                                    </td>
-                                </tr>
-                            <?php
-                            }
-                            ?>
-                        </tbody>
-                    </table>
-                </div>
+                
             </div>
         </div>
     </div>

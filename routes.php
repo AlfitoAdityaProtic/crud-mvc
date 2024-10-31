@@ -1,6 +1,6 @@
 <?php
 // routes.php
-
+require_once 'app/controllers/ControllerHome.php';
 require_once 'app/controllers/ControllerDataPelatihan.php';
 require_once 'app/controllers/ControllerDepartemen.php';
 require_once 'app/controllers/ControllerAbsensi.php';
@@ -13,6 +13,7 @@ $controller2 = new Departemen();
 $controller3 = new DataAbsensi();
 $controller4 = new DataKaryawan();
 // $controller5 = new PelatihanKaryawan();
+$controller6 = new Home();
 
 $url = $_SERVER['REQUEST_URI'];
 
@@ -91,4 +92,7 @@ elseif ($url == '/karyawan/index') { // karyawan start
 //     $id_pelatihanKaryawan = $matches[1];
 //     $controller5->delete($id_pelatihanKaryawan); // pelatihan karyawan end
 // }
+elseif ($url == '/home/index') { // karyawan start
+    $controller6->index();
+}
 

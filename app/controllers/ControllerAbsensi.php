@@ -15,7 +15,6 @@ class DataAbsensi {
     public function index() {
         $DataAbsensi = $this->AbsensiModel->tampilAbsensi();
         require_once '../app/views/absensi/index.php';
-
     }
 
     public function create() {

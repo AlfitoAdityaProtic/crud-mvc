@@ -34,7 +34,8 @@ class DataKaryawanModels extends Database
 
     public function updateKaryawan()
     {
-        $query = $this->conn->query("UPDATE data_karyawan SET nama = '$_POST[nama]', jabatan = '$_POST[jabatan]', noHP = '$_POST[noHP]', email = '$_POST[email]', id_departemen = '$_POST[id_departemen]'  WHERE id_karyawan = '$_POST[id_karyawan]'");
+        $query = $this->conn->query("UPDATE data_karyawan SET nama = '$_POST[nama]', jabatan = '$_POST[jabatan]', noHP = '$_POST[noHP]', email = '$_POST[email]', id_departemen = '$_POST[id_departemen]'  
+        WHERE id_karyawan = '$_POST[id_karyawan]'");
         return $query;
     }
 
