@@ -15,7 +15,7 @@ class DataKaryawanModels extends Database
         $query = $this->conn->query("SELECT data_karyawan.id_karyawan, data_karyawan.nama, data_karyawan.jabatan, data_karyawan.gaji, data_karyawan.noHP, data_karyawan.email, data_karyawan.id_departemen,
                                         data_departemen.nama_departemen, data_departemen.job_desk
                                  FROM data_karyawan
-                                 JOIN data_departemen ON data_karyawan.id_departemen = data_departemen.id_departemen");
+                                 JOINgi data_departemen ON data_karyawan.id_departemen = data_departemen.id_departemen");
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 
