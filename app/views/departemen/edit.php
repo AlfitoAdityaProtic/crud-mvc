@@ -9,13 +9,15 @@
     <h1>Edit Data Departemen</h1>
 
     <form action="/departemen/update" method="post">
-        <label for="nama_departemen">Nama Departemen</label>
-        <input type="text" name="nama_departemen" value="<?= $DataDepartemen['nama_departemen']; ?>">
-        
-        <label for="job_desk">Tugas Departemen</label> 
-        <input type="text" name="job_desk" value="<?= $DataDepartemen['job_desk']; ?>">
+    <input type="hidden" name="id_departemen" value="<?= $DataDepartemen['id_departemen']; ?>">
+    
+    <label for="nama_departemen">Nama Departemen</label>
+    <input type="text" name="nama_departemen" value="<?= $DataDepartemen['nama_departemen']; ?>">
+    
+    <label for="job_desk">Tugas Departemen</label> 
+    <input type="text" name="job_desk" value="<?= $DataDepartemen['job_desk']; ?>">
 
-        <button type="submit">Simpan</button>
+    <button type="submit">Simpan</button>
     </form>
 </body>
 </html>
