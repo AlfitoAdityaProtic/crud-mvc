@@ -42,8 +42,8 @@
             <div class="card-body">
                 <form action="/karyawan/store" method="post">
                     <div class="mb-3">
-                    <label for="id_karyawan" class="form-label">ID Karyawan</label>
-                    <input type="text" name="id_karyawan" id="id_karyawan" value="<?= isset($DataKaryawan['id_karyawan']) ? $DataKaryawan['id_karyawan'] : ''; ?>" class="form-control" required>
+                        <label for="id_karyawan" class="form-label">ID Karyawan</label>
+                        <input type="number" name="id_karyawan" id="id_karyawan" class="form-control" required>
                     </div>
 
                     <div class="mb-3">
@@ -72,8 +72,13 @@
                     </div>
 
                     <div class="mb-3">
-                    <label for="id_departemen" class="form-label">ID Departemen</label>
-                    <input type="text" name="id_departemen" id="id_departemen" class="form-control" required>
+                        <label for="id_departemen" class="form-label">Departemen</label>
+                        <select name="id_departemen" id="id_departemen" class="form-control">
+                            <option value="">Pilih Departemen</option>
+                            <?php foreach ($data_departement as $Departemen) : ?>
+                                <option value="<?= $Departemen['id_departemen'] ?>"><?= $Departemen['nama_departemen'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
 
                     <div class="text-center">

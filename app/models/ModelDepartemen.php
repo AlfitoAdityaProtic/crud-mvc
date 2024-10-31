@@ -29,8 +29,18 @@ class DepartemenModels Extends Database {
     }
 
     public function deleteDepartemen($id_departemen) {
-        $query = $this->conn->query("DELETE FROM data_departemen WHERE id_departemen = '$id_departemen'");
-        return $query;
+         // Menggunakan prepared statement untuk keamanan
+    $stmt = $this->conn->prepare("SELECT COUNT(*) FROM data_karyawan WHERE id_departemen = :id_departemen");
+    $stmt->execute(['id_departemen' => $id_departemen]);
+    
+    // Mengambil hasil dari query
+    $count = $stmt->fetchColumn();
+        if($count < 1){
+            $query = $this->conn->query("DELETE FROM data_departemen WHERE id_departemen = '$id_departemen'");
+            return 1;
+        }else{
+            return 0;
+        }
     }
 
     public function getNamaDepartement($id){

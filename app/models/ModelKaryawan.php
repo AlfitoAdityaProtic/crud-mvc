@@ -14,7 +14,11 @@ class DataKaryawanModels extends Database {
     }
 
     public function tambahDataKaryawan($id_karyawan, $nama, $jabatan, $gaji, $noHP, $email, $id_departemen) {
-        $query = $this->conn->prepare("
+        $stmt = $this->conn->prepare("SELECT COUNT(*) FROM data_karyawan WHERE id_karyawan = :id_karyawan");
+        $stmt->execute(['id_karyawan' => $id_karyawan]);
+        $count = $stmt->fetchColumn();
+        if($count < 1){
+            $query = $this->conn->prepare("
             INSERT INTO data_karyawan (id_karyawan, nama, jabatan, gaji, noHP, email, id_departemen) 
             VALUES (:id_karyawan, :nama, :jabatan, :gaji, :noHP, :email, :id_departemen)
         ");
@@ -25,7 +29,12 @@ class DataKaryawanModels extends Database {
         $query->bindParam(':noHP', $noHP);
         $query->bindParam(':email', $email);
         $query->bindParam(':id_departemen', $id_departemen);
-        return $query->execute();
+        $query->execute();
+        return 1;
+        }else{
+            return 0;
+        }
+       
     }
     
     public function getDataKaryawanById($id_karyawan) {

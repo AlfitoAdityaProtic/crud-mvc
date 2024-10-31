@@ -18,9 +18,10 @@ class DataKaryawan {
     }
 
     public function create() {
+        $data_departement = $this->DepartemenModels->tampilDepartemen();
         require_once '../app/views/karyawan/create.php'; // Pastikan view create ada
     }
-
+ 
     public function store() {
         $id_karyawan = $_POST['id_karyawan'];
         $nama = $_POST['nama'];
@@ -29,14 +30,21 @@ class DataKaryawan {
         $noHP = $_POST['noHP'];
         $email = $_POST['email'];
         $id_departemen = $_POST['id_departemen'];
-    
-        $this->DataKaryawan->tambahDataKaryawan($id_karyawan, $nama, $jabatan, $gaji, $noHP, $email, $id_departemen); // Panggil metode dengan parameter lengkap
+        $check = $this->DataKaryawan->tambahDataKaryawan($id_karyawan, $nama, $jabatan, $gaji, $noHP, $email, $id_departemen); // Panggil metode dengan parameter lengkap
+        session_start();
+        if ($check == 1) {
+            $_SESSION['message'] = 'Data departemen berhasil ditambahkan.'; // Simpan pesan sukses di session
+        } else {
+            $_SESSION['message'] = 'Data departemen gagal ditambahkan.'; // Simpan pesan gagal di session
+        }
+      
         header('Location: /karyawan/index'); // Redirect setelah penyimpanan
         exit();
     }    
  
     public function edit($id_karyawan) {  
         $data_karyawan = $this->DataKaryawan->getDataKaryawanById($id_karyawan); // Ambil data untuk edit
+        $data_departement = $this->DepartemenModels->tampilDepartemen();
         require_once '../app/views/karyawan/edit.php'; // Pastikan view edit ada
     }
 

@@ -1,6 +1,15 @@
 <!-- app/views/user/index.php -->
+<?php
+session_start(); // Pastikan session sudah dimulai
+if (isset($_SESSION['message'])) {
+    echo "<script>alert('" . htmlspecialchars($_SESSION['message']) . "');</script>";
+    unset($_SESSION['message']); // Hapus pesan setelah ditampilkan
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +23,8 @@
             font-family: Arial, sans-serif;
         }
 
-        body, html {
+        body,
+        html {
             height: 100%;
             display: flex;
             background-color: #f8f9fa;
@@ -100,7 +110,9 @@
             font-family: Verdana, sans-serif;
         }
 
-        table, th, td {
+        table,
+        th,
+        td {
             border: 1px solid #007bff;
             text-align: center;
             padding: 8px;
@@ -115,7 +127,8 @@
             background-color: #f9f9f9;
         }
 
-        .btn-warning, .btn-danger {
+        .btn-warning,
+        .btn-danger {
             color: #333;
             padding: 5px 10px;
             border-radius: 3px;
@@ -141,6 +154,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container-fluid">
         <!-- Sidebar -->
@@ -200,23 +214,24 @@
                 </tr>
                 <?php
                 $no = 1;
-                foreach($DataDepartemen as $row){
+                foreach ($DataDepartemen as $row) {
                 ?>
-                <tr>
-                    <td><?php echo $no++; ?></td>
-                    <td><?php echo $row['id_departemen']; ?></td>
-                    <td><?php echo $row['nama_departemen']; ?></td>
-                    <td><?php echo $row['job_desk']; ?></td>
-                    <td>
-                        <a href="/departemen/edit/<?php echo $row['id_departemen']; ?>" class="btn-warning">Edit</a>
-                        <a href="/departemen/delete/<?php echo $row['id_departemen']; ?>" class="btn-danger">Delete</a>
-                    </td>
-                </tr>
-                <?php 
-                } 
+                    <tr>
+                        <td><?php echo $no++; ?></td>
+                        <td><?php echo $row['id_departemen']; ?></td>
+                        <td><?php echo $row['nama_departemen']; ?></td>
+                        <td><?php echo $row['job_desk']; ?></td>
+                        <td>
+                            <a href="/departemen/edit/<?php echo $row['id_departemen']; ?>" class="btn-warning">Edit</a>
+                            <a href="/departemen/delete/<?php echo $row['id_departemen']; ?>" class="btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                <?php
+                }
                 ?>
             </table>
         </div>
     </div>
 </body>
+
 </html>

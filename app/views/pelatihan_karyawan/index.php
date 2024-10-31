@@ -1,5 +1,13 @@
+<?php
+session_start(); // Pastikan session sudah dimulai
+if (isset($_SESSION['message'])) {
+    echo "<script>alert('" . htmlspecialchars($_SESSION['message']) . "');</script>";
+    unset($_SESSION['message']); // Hapus pesan setelah ditampilkan
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +21,8 @@
             font-family: Arial, sans-serif;
         }
 
-        body, html {
+        body,
+        html {
             height: 100%;
             display: flex;
             background-color: #f8f9fa;
@@ -93,7 +102,9 @@
             font-family: Verdana, sans-serif;
         }
 
-        table, th, td {
+        table,
+        th,
+        td {
             border: 1px solid #007bff;
             text-align: center;
             padding: 8px;
@@ -108,7 +119,8 @@
             background-color: #f9f9f9;
         }
 
-        .btn-warning, .btn-danger {
+        .btn-warning,
+        .btn-danger {
             color: #333;
             padding: 5px 10px;
             border-radius: 3px;
@@ -134,6 +146,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container-fluid">
         <!-- Sidebar -->
@@ -188,21 +201,21 @@
                 </tr>
                 <?php
                 $no = 1;
-                foreach($data_pelatihan as $row){
+                foreach ($data_pelatihan as $row) {
                 ?>
-                <tr>
-                    <td><?php echo $no++; ?></td>
-                    <td><?php echo htmlspecialchars($this->DataKaryawanModels->getNamaKaryawan($row['id_karyawan'])); ?></td>
-                    <td><?php echo htmlspecialchars($this->DataPelatihanModels->getKeteranganPelatihan($row['id_pelatihan'])); ?></td>
-                    <td><?php echo $row['tanggal']; ?></td>
-                    <td><?php echo $row['keterangan']; ?></td>
-                    <td>
-                        <a href="/pelatihan_karyawan/edit/<?php echo $row['id_pelatihanKaryawan']; ?>" class="btn-warning">Edit</a>
-                        <a href="/pelatihan_karyawan/delete/<?php echo $row['id_pelatihanKaryawan']; ?>" class="btn-danger">Delete</a>
-                    </td>
-                </tr>
-                <?php 
-                } 
+                    <tr>
+                        <td><?php echo $no++; ?></td>
+                        <td><?php echo htmlspecialchars($this->DataKaryawanModels->getNamaKaryawan($row['id_karyawan'])); ?></td>
+                        <td><?php echo htmlspecialchars($this->DataPelatihanModels->getKeteranganPelatihan($row['id_pelatihan'])); ?></td>
+                        <td><?php echo $row['tanggal']; ?></td>
+                        <td><?php echo $row['keterangan']; ?></td>
+                        <td>
+                            <a href="/pelatihan_karyawan/edit/<?php echo $row['id_pelatihanKaryawan']; ?>" class="btn-warning">Edit</a>
+                            <a href="/pelatihan_karyawan/delete/<?php echo $row['id_pelatihanKaryawan']; ?>" class="btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                <?php
+                }
                 ?>
             </table>
         </div>
@@ -210,4 +223,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
+
 </html>

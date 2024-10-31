@@ -37,6 +37,12 @@
         <div class="card">
             <div class="card-body">
                 <form action="/departemen/store" method="post">
+
+                    <div class="mb-3">
+                        <label for="id_departemen" class="form-label">ID Departemen</label>
+                        <input type="number" name="id_departemen" id="id_departemen" class="form-control" required>
+                    </div>
+
                     <div class="mb-3">
                         <label for="nama_departemen" class="form-label">Nama Departemen</label>
                         <input type="text" name="nama_departemen" id="nama_departemen" class="form-control" required>

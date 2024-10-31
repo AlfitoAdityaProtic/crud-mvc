@@ -25,25 +25,40 @@ class PelatihanKaryawan {
 
     // Menampilkan formulir untuk menambahkan data pelatihan karyawan
     public function create() {
+        $data_karyawan = $this->DataKaryawanModels->tampilDataKaryawan();
+        $data_pelatihan = $this->DataPelatihanModels->tampilDataPelatihan();
         require_once '../app/views/pelatihan_karyawan/create.php'; // Pastikan file ini ada
     }
 
     // Menyimpan data pelatihan karyawan
     public function store() {
         // Ambil data dari input
+        $id_pelatihanKaryawan = $_POST['id_pelatihanKaryawan'];
         $id_karyawan = $_POST['id_karyawan'];
         $id_pelatihan = $_POST['id_pelatihan'];
         $tanggal = $_POST['tanggal'];
         $keterangan = $_POST['keterangan'];
+        $check = $this->model->tambah_data($id_pelatihanKaryawan, $id_karyawan, $id_pelatihan, $tanggal, $keterangan); // Panggil metode dengan parameter lengkap
+        session_start();
+        if ($check == 1) {
+            $_SESSION['message'] = 'Data departemen berhasil ditambahkan.'; // Simpan pesan sukses di session
+        } else {
+            $_SESSION['message'] = 'Data departemen gagal ditambahkan.'; // Simpan pesan gagal di session
+        }
+      
+        header('Location: /pelatihan_karyawan/index'); // Redirect setelah penyimpanan
+        exit();
 
         // Validasi input dapat ditambahkan di sini jika perlu
-        $this->model->tambah_data($id_karyawan, $id_pelatihan, $tanggal, $keterangan);
+        $this->model->tambah_data($id_pelatihanKaryawan, $id_karyawan, $id_pelatihan, $tanggal, $keterangan);
         header('Location: /pelatihan_karyawan/index');
     }
 
     // Mengedit data pelatihan karyawan berdasarkan ID
     public function edit($id_pelatihanKaryawan) {
-        $data_pelatihan = $this->model->getDataPelatihanById($id_pelatihanKaryawan);
+        $pelatihan = $this->model->getDataPelatihanById($id_pelatihanKaryawan);
+        $data_karyawan = $this->DataKaryawanModels->tampilDataKaryawan();
+        $data_pelatihan = $this->DataPelatihanModels->tampilDataPelatihan();
         require_once '../app/views/pelatihan_karyawan/edit.php'; // Pastikan file ini ada
     }
 

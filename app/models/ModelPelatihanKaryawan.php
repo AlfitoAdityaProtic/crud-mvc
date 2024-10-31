@@ -20,39 +20,40 @@ class PelatihanKaryawanModels extends Database {
         return $query->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function tambah_data($id_karyawan, $id_pelatihan, $tanggal, $keterangan) {
-        // Konversi format dari 'Y-m-d\TH:i' ke 'Y-m-d H:i:s'
-        $dateTimeObject = DateTime::createFromFormat('Y-m-d\TH:i', $tanggal);
-        $formattedDate = $dateTimeObject ? $dateTimeObject->format('Y-m-d H:i:s') : null;
+    public function tambah_data($id_pelatihanKaryawan, $id_karyawan, $id_pelatihan, $tanggal, $keterangan) {
+        $stmt = $this->conn->prepare("SELECT COUNT(*) FROM pelatihan_karyawan WHERE id_pelatihanKaryawan = :id_pelatihanKaryawan");
+        $stmt->execute(['id_pelatihanKaryawan' => $id_pelatihanKaryawan]);
+        $count = $stmt->fetchColumn();
+        
     
-        if ($formattedDate) {
-            $query = $this->conn->prepare("INSERT INTO pelatihan_karyawan (id_karyawan, id_pelatihan, tanggal, keterangan) VALUES (:id_karyawan, :id_pelatihan, :tanggal, :keterangan)");
+        if ($count < 1) {
+            $query = $this->conn->prepare("INSERT INTO pelatihan_karyawan (id_pelatihanKaryawan, id_karyawan, id_pelatihan, tanggal, keterangan) VALUES (:id_pelatihanKaryawan, :id_karyawan, :id_pelatihan, :tanggal, :keterangan)");
+            $query->bindParam(':id_pelatihanKaryawan', $id_pelatihanKaryawan);
             $query->bindParam(':id_karyawan', $id_karyawan);
             $query->bindParam(':id_pelatihan', $id_pelatihan);
-            $query->bindParam(':tanggal', $formattedDate);
+            $query->bindParam(':tanggal', $tanggal);
             $query->bindParam(':keterangan', $keterangan);
-            return $query->execute();
-        } else {
-            throw new Exception("Invalid date format for 'tanggal'. Expected format: 'Y-m-d\TH:i'.");
+            $query->execute();
+            return 1;
+        }else{
+            return 0;
         }
     }
 
     public function edit_data($id_pelatihanKaryawan, $id_karyawan, $id_pelatihan, $tanggal, $keterangan) {
-        // Konversi format dari 'Y-m-d\TH:i' ke 'Y-m-d H:i:s'
-        $dateTimeObject = DateTime::createFromFormat('Y-m-d\TH:i', $tanggal);
-        $formattedDate = $dateTimeObject ? $dateTimeObject->format('Y-m-d H:i:s') : null;
     
-        if ($formattedDate) {
-            $query = $this->conn->prepare("UPDATE pelatihan_karyawan SET id_karyawan=:id_karyawan, id_pelatihan=:id_pelatihan, tanggal=:tanggal, keterangan=:keterangan WHERE id_pelatihanKaryawan=:id");
+        $query = $this->conn->prepare("UPDATE pelatihan_karyawan 
+        SET id_karyawan = :id_karyawan, 
+            id_pelatihan = :id_pelatihan,  # Ada kesalahan disini sebelumnya
+            tanggal = :tanggal, 
+            keterangan = :keterangan  
+        WHERE id_pelatihanKaryawan = :id_pelatihanKaryawan"); # Hapus koma sebelum WHERE
+            $query->bindParam(':id_pelatihanKaryawan', $id_pelatihanKaryawan);
             $query->bindParam(':id_karyawan', $id_karyawan);
             $query->bindParam(':id_pelatihan', $id_pelatihan);
-            $query->bindParam(':tanggal', $formattedDate);
+            $query->bindParam(':tanggal', $tanggal);
             $query->bindParam(':keterangan', $keterangan);
-            $query->bindParam(':id', $id_pelatihanKaryawan);
             return $query->execute();
-        } else {
-            throw new Exception("Invalid date format for 'tanggal'. Expected format: 'Y-m-d\TH:i'.");
-        }
     }
     
     public function hapus_data($id_pelatihanKaryawan) {

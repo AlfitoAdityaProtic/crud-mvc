@@ -41,36 +41,44 @@
         <div class="card">
             <div class="card-body">
                 <form action="/karyawan/update" method="post">
-                    <input type="hidden" name="id_karyawan" value="<?= isset($DataKaryawan['id_karyawan']) ? $DataKaryawan['id_karyawan'] : ''; ?>" required>
+                    <input type="hidden" name="id_karyawan" value="<?= $data_karyawan['id_karyawan'] ?>" required>
 
                     <div class="mb-3">
                         <label for="nama" class="form-label">Nama</label>
-                        <input type="text" name="nama" value="<?= isset($DataKaryawan['nama']) ? $DataKaryawan['nama'] : ''; ?>" class="form-control" required>
+                        <input type="text" name="nama" value="<?= $data_karyawan['nama'] ?>" class="form-control" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="jabatan" class="form-label">Jabatan</label>
-                        <input type="text" name="jabatan" value="<?= isset($DataKaryawan['jabatan']) ? $DataKaryawan['jabatan'] : ''; ?>" class="form-control" required>
+                        <input type="text" name="jabatan" value="<?= $data_karyawan['jabatan'] ?>" class="form-control" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="gaji" class="form-label">Gaji</label>
-                        <input type="text" name="gaji" value="<?= isset($DataKaryawan['gaji']) ? $DataKaryawan['gaji'] : ''; ?>" class="form-control" required>
+                        <input type="text" name="gaji" value="<?= $data_karyawan['gaji'] ?>" class="form-control" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="noHP" class="form-label">No HP</label>
-                        <input type="text" name="noHP" value="<?= isset($DataKaryawan['noHP']) ? $DataKaryawan['noHP'] : ''; ?>" class="form-control" required>
+                        <input type="text" name="noHP" value="<?= $data_karyawan['noHP'] ?>" class="form-control" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" name="email" value="<?= isset($DataKaryawan['email']) ? $DataKaryawan['email'] : ''; ?>" class="form-control" required>
+                        <input type="email" name="email" value="<?= $data_karyawan['email']  ?>" class="form-control" required>
                     </div>
 
                     <div class="mb-3">
-                        <label for="id_departemen" class="form-label">ID Departemen</label>
-                        <input type="text" name="id_departemen" value="<?= isset($DataKaryawan['id_departemen']) ? $DataKaryawan['id_departemen'] : ''; ?>" class="form-control" required>
+                        <label for="id_departemen" class="form-label">Departemen</label>
+                        <select name="id_departemen" id="id_departemen" class="form-control">
+                            <option value="">Pilih Departemen</option>
+                            <?php foreach ($data_departement as $Departemen) : ?>
+                                <option value="<?= $Departemen['id_departemen'] ?>"
+                                    <?php if ($Departemen['id_departemen'] == $data_karyawan['id_departemen']) echo 'selected'; ?>>
+                                    <?= $Departemen['nama_departemen'] ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
 
                     <div class="text-center">

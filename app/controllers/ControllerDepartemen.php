@@ -35,8 +35,18 @@ class Departemen {
         header('location: /departemen/index');
     }
 
-    public function delete($id_departemen){
-        $this->DepartemenModel->deleteDepartemen($id_departemen);
-        header('location: /departemen/index');
+    public function delete($id_departemen) {
+        $count = $this->DepartemenModel->deleteDepartemen($id_departemen); // Hapus data karyawan
+        session_start(); // Pastikan session sudah dimulai
+    
+        if ($count == 1) {
+            $_SESSION['message'] = 'Data departemen berhasil dihapus.'; // Simpan pesan sukses di session
+        } else {
+            $_SESSION['message'] = 'Data departemen gagal dihapus.'; // Simpan pesan gagal di session
+        }
+    
+        header('Location: /departemen/index'); // Ganti URL setelah hapus
+        exit();
     }
+    
 }
