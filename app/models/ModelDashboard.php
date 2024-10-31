@@ -4,32 +4,47 @@ require_once '../config/database.php';
 
 class ModelDashboard extends Database {
     public function __construct() {
-        parent::__construct(); // Call the parent constructor to establish the database connection
+        parent::__construct(); // Memanggil konstruktor parent untuk menghubungkan ke database
     }
 
-    // Method to get the total number of employees
+    // Mendapatkan total karyawan
     public function getTotalKaryawan() {
         $stmt = $this->conn->prepare("SELECT COUNT(*) AS total FROM data_karyawan");
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $result ? $result['total'] : 0; // Return the total or 0 if not found
+        return $result ? $result['total'] : 0;
     }
 
-    // Method to get the total number of departments
+    // Mendapatkan total departemen
     public function getTotalDepartemen() {
         $stmt = $this->conn->prepare("SELECT COUNT(*) AS total FROM data_departemen");
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $result ? $result['total'] : 0; // Return the total or 0 if not found
+        return $result ? $result['total'] : 0;
     }
 
-    // Method to get the total number of training data
+    // Mendapatkan total data pelatihan
     public function getTotalDataPelatihan() {
         $stmt = $this->conn->prepare("SELECT COUNT(*) AS total FROM data_pelatihan");
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $result ? $result['total'] : 0; // Return the total or 0 if not found
+        return $result ? $result['total'] : 0;
     }
 
+    // Mendapatkan total pelatihan karyawan
+    public function getTotalPelatihanKaryawan() {
+        $stmt = $this->conn->prepare("SELECT COUNT(*) AS total FROM pelatihan_karyawan");
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result ? $result['total'] : 0;
+    }
+
+    // Mendapatkan total absensi karyawan
+    public function getTotalAbsensiKaryawan() {
+        $stmt = $this->conn->prepare("SELECT COUNT(*) AS total FROM absensi_karyawan");
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result ? $result['total'] : 0;
+    }
 }
 ?>

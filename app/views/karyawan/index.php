@@ -143,7 +143,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/karyawan/index" class="nav-link <?php echo $page == 'karyawan' ? 'active' : ''; ?>">
+                    <a href="/karyawan/index" class="nav-link active <?php echo $page == 'karyawan' ? 'active' : ''; ?>">
                         <span>Data Karyawan</span>
                     </a>
                 </li>

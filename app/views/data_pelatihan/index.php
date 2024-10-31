@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <title>Tampil Data Pelatihan Karyawan</title>
     <style>
         /* Reset and Basic Styling */
@@ -172,7 +173,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/data_pelatihan/index" class="nav-link <?php echo $page == 'data_pelatihan' ? 'active' : ''; ?>">
+                    <a href="/data_pelatihan/index" class="nav-link active <?php echo $page == 'data_pelatihan' ? 'active' : ''; ?>">
                         <i class='bx bxs-graduation'></i>
                         <span>Data Pelatihan</span>
                     </a>

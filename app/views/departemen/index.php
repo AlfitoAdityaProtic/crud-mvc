@@ -160,7 +160,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/departemen/index" class="nav-link <?php echo $page == 'departemen' ? 'active' : ''; ?>">
+                    <a href="/departemen/index" class="nav-link active <?php echo $page == 'departemen' ? 'active' : ''; ?>">
                         <i class='bx bxs-buildings'></i>
                         <span>Data Departemen</span>
                     </a>

@@ -15,6 +15,8 @@ class Dashboard {
         $totalKaryawan = $this->model->getTotalKaryawan();
         $totalDepartemen = $this->model->getTotalDepartemen();
         $totalDataPelatihan = $this->model->getTotalDataPelatihan();
+        $totalPelatihanKaryawan = $this->model->getTotalPelatihanKaryawan(); // Total training for employees
+        $totalAbsensiKaryawan = $this->model->getTotalAbsensiKaryawan(); // Total attendance for employees
 
         // Pass data to the view
         require_once '../app/views/dashboard/index.php';

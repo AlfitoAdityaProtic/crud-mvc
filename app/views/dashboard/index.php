@@ -111,6 +111,14 @@
             background-color: #ffc107;
         }
 
+        .bg-info {
+            background-color: #17a2b8;
+        }
+
+        .bg-secondary {
+            background-color: #6c757d;
+        }
+
         .card-header {
             font-size: 1.25rem;
             margin-bottom: 10px;
@@ -128,7 +136,7 @@
             <h4>SI Karyawan</h4>
             <ul class="nav">
                 <li class="nav-item">
-                    <a href="/dashboard/index" class="nav-link <?php echo $page == 'dashboard' ? 'active' : ''; ?>">
+                    <a href="/dashboard/index" class="nav-link active <?php echo $page == 'dashboard' ? 'active' : ''; ?>">
                         <i class='bx bxs-dashboard'></i>
                         <span>Dashboard</span>
                     </a>
@@ -191,6 +199,22 @@
                         <div class="card-header">Total Data Pelatihan</div>
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $totalDataPelatihan; ?></h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-info">
+                        <div class="card-header">Total Pelatihan Karyawan</div>
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $totalPelatihanKaryawan; ?></h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-secondary">
+                        <div class="card-header">Total Absensi Karyawan</div>
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $totalAbsensiKaryawan; ?></h5>
                         </div>
                     </div>
                 </div>
