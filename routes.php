@@ -1,38 +1,35 @@
 <?php
 // routes.php
 require_once 'app/controllers/ControllerHome.php';
-require_once 'app/controllers/ControllerDataPelatihan.php';
+// require_once 'app/controllers/ControllerDataPelatihan.php';
 require_once 'app/controllers/ControllerDepartemen.php';
 require_once 'app/controllers/ControllerAbsensi.php';
 require_once 'app/controllers/ControllerKaryawan.php';
-// require_once 'app/controllers/ControllerPelatihanKaryawan.php';
 
-
-$controller = new DataPelatihan();
+// $controller = new DataPelatihan();
 $controller2 = new Departemen();
 $controller3 = new DataAbsensi();
 $controller4 = new DataKaryawan();
-// $controller5 = new PelatihanKaryawan();
 $controller6 = new Home();
 
 $url = $_SERVER['REQUEST_URI'];
 
-if ($url == '/data_pelatihan/index' || $url == '/') { //data pelatihan start
-    $controller->index();
-}elseif ($url == '/data_pelatihan/create') {
-    $controller->create();
-} elseif ($url == '/data_pelatihan/store') {
-    $controller->store();
-} elseif (preg_match('/\/data_pelatihan\/edit\/(\d+)/', $url, $matches)) {
-    $id_pelatihan = $matches[1];
-    $controller->edit($id_pelatihan);
-}elseif ($url == '/data_pelatihan/update') {
-    $controller->update();
-} elseif (preg_match('/\/data_pelatihan\/delete\/(\d+)/', $url, $matches)) {
-    $id_pelatihan = $matches[1];
-    $controller->delete($id_pelatihan); // data pelatihan end
-}
-elseif ($url == '/departemen/index') { // departemen start
+// if ($url == '/data_pelatihan/index' || $url == '/') { //data pelatihan start
+//     $controller->index();
+// }elseif ($url == '/data_pelatihan/create') {
+//     $controller->create();
+// } elseif ($url == '/data_pelatihan/store') {
+//     $controller->store();
+// } elseif (preg_match('/\/data_pelatihan\/edit\/(\d+)/', $url, $matches)) {
+//     $id_pelatihan = $matches[1];
+//     $controller->edit($id_pelatihan);
+// }elseif ($url == '/data_pelatihan/update') {
+//     $controller->update();
+// } elseif (preg_match('/\/data_pelatihan\/delete\/(\d+)/', $url, $matches)) {
+//     $id_pelatihan = $matches[1];
+//     $controller->delete($id_pelatihan); // data pelatihan end
+// }
+if ($url == '/departemen/index' || $url == '/') { // departemen start
     $controller2->index();
 }elseif ($url == '/departemen/create') {
     $controller2->create();
@@ -77,21 +74,6 @@ elseif ($url == '/karyawan/index') { // karyawan start
     $id_karyawan = $matches[1];
     $controller4->delete($id_karyawan); // karyawan end
 }
-// elseif ($url == '/pelatihan_karyawan/index') { // pelatihan karyawan start
-//     $controller5->index();
-// }elseif ($url == '/pelatihan_karyawan/create') {
-//     $controller5->create();
-// } elseif ($url == '/pelatihan_karyawan/store') {
-//     $controller5->store();
-// } elseif (preg_match('/\/pelatihan_karyawan\/edit\/(\d+)/', $url, $matches)) {
-//     $id_pelatihanKaryawan = $matches[1];
-//     $controller5->edit($id_pelatihanKaryawan);
-// }elseif ($url == '/pelatihan_karyawan/update') {
-//     $controller5->update();
-// } elseif (preg_match('/\/pelatihan_karyawan\/delete\/(\d+)/', $url, $matches)) {
-//     $id_pelatihanKaryawan = $matches[1];
-//     $controller5->delete($id_pelatihanKaryawan); // pelatihan karyawan end
-// }
 elseif ($url == '/home/index') { // karyawan start
     $controller6->index();
 }
