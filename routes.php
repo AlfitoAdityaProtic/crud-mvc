@@ -29,7 +29,7 @@ $url = $_SERVER['REQUEST_URI'];
 //     $id_pelatihan = $matches[1];
 //     $controller->delete($id_pelatihan); // data pelatihan end
 // }
-if ($url == '/departemen/index' || $url == '/') { // departemen start
+if ($url == '/departemen/index') { // departemen start
     $controller2->index();
 }elseif ($url == '/departemen/create') {
     $controller2->create();
@@ -74,7 +74,7 @@ elseif ($url == '/karyawan/index') { // karyawan start
     $id_karyawan = $matches[1];
     $controller4->delete($id_karyawan); // karyawan end
 }
-elseif ($url == '/home/index') { // karyawan start
+elseif ($url == '/home/index'  || $url == '/') { // karyawan start
     $controller6->index();
 }
 

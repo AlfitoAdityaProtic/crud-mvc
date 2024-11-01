@@ -169,23 +169,23 @@
         });
 
         // Search Functionality
-        const searchInput = document.getElementById('searchInput');
-        const absensiTable = document.getElementById('absensiTable');
+        // const searchInput = document.getElementById('searchInput');
+        // const absensiTable = document.getElementById('absensiTable');
 
-        searchInput.addEventListener('keyup', function() {
-            const filter = searchInput.value.toLowerCase();
-            const rows = absensiTable.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+        // searchInput.addEventListener('keyup', function() {
+        //     const filter = searchInput.value.toLowerCase();
+        //     const rows = absensiTable.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
 
-            for (let i = 0; i < rows.length; i++) {
-                const cells = rows[i].getElementsByTagName('td');
-                for (let j = 1; j < cells.length - 1; j++) { // Mulai dari 1 untuk melewati No. dan Aksi
-                    if (cells[j].textContent.toLowerCase().includes(filter)) {
-                        match = true;
-                        break;
-                    }
-                }
+        //     for (let i = 0; i < rows.length; i++) {
+        //         const cells = rows[i].getElementsByTagName('td');
+        //         for (let j = 1; j < cells.length - 1; j++) { // Mulai dari 1 untuk melewati No. dan Aksi
+        //             if (cells[j].textContent.toLowerCase().includes(filter)) {
+        //                 match = true;
+        //                 break;
+        //             }
+        //         }
 
-                rows[i].style.display = match ? '' : 'none'; // Tampilkan atau sembunyikan baris
-            }
-        });
+        //         rows[i].style.display = match ? '' : 'none'; // Tampilkan atau sembunyikan baris
+        //     }
+        // });
     </script>
