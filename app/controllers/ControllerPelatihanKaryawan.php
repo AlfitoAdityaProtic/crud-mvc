@@ -41,9 +41,9 @@ class PelatihanKaryawan {
         $check = $this->model->tambah_data($id_pelatihanKaryawan, $id_karyawan, $id_pelatihan, $tanggal, $keterangan); // Panggil metode dengan parameter lengkap
         session_start();
         if ($check == 1) {
-            $_SESSION['message'] = 'Data departemen berhasil ditambahkan.'; // Simpan pesan sukses di session
+            $_SESSION['message'] = 'Data Pelatihan Karyawan berhasil ditambahkan.'; // Simpan pesan sukses di session
         } else {
-            $_SESSION['message'] = 'Data departemen gagal ditambahkan.'; // Simpan pesan gagal di session
+            $_SESSION['message'] = 'Pelatihan Karyawan gagal ditambahkan.'; // Simpan pesan gagal di session
         }
       
         header('Location: /pelatihan_karyawan/index'); // Redirect setelah penyimpanan

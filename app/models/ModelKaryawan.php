@@ -66,11 +66,26 @@ class DataKaryawanModels extends Database {
             return $query->execute();
         }
 
-    public function deleteDataKaryawan($id_karyawan) {
-        $query = $this->conn->prepare("DELETE FROM data_karyawan WHERE id_karyawan = :id");
-        $query->bindParam(':id', $id_karyawan);
-        return $query->execute();
-    }
+        public function deleteDataKaryawan($id_karyawan) {
+            // Cek apakah ada data terkait di tabel absensi_karyawan
+            $query = $this->conn->prepare("SELECT COUNT(*) FROM absensi_karyawan WHERE id_karyawan = :id");
+            $query->bindParam(':id', $id_karyawan);
+            $query->execute();
+            $relatedDataExists = $query->fetchColumn() > 0;
+        
+            if ($relatedDataExists) {
+                // Jika ada data terkait, kembalikan false
+                return false; 
+            } else {
+                // Jika tidak ada data terkait, hapus data karyawan
+                $query = $this->conn->prepare("DELETE FROM data_karyawan WHERE id_karyawan = :id");
+                $query->bindParam(':id', $id_karyawan);
+                $query->execute();
+                return true; // Kembalikan true jika berhasil dihapus
+            }
+        }
+        
+        
 
     public function getNamaKaryawan($id){
         $id_karyawan = $this->getDataKaryawanById($id);

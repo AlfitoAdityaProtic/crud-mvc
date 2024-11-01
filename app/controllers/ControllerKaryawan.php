@@ -33,9 +33,9 @@ class DataKaryawan {
         $check = $this->DataKaryawan->tambahDataKaryawan($id_karyawan, $nama, $jabatan, $gaji, $noHP, $email, $id_departemen); // Panggil metode dengan parameter lengkap
         session_start();
         if ($check == 1) {
-            $_SESSION['message'] = 'Data departemen berhasil ditambahkan.'; // Simpan pesan sukses di session
+            $_SESSION['message'] = 'Data Karyawan berhasil ditambahkan.'; // Simpan pesan sukses di session
         } else {
-            $_SESSION['message'] = 'Data departemen gagal ditambahkan.'; // Simpan pesan gagal di session
+            $_SESSION['message'] = 'Data Karyawan gagal ditambahkan.'; // Simpan pesan gagal di session
         }
       
         header('Location: /karyawan/index'); // Redirect setelah penyimpanan
@@ -66,9 +66,20 @@ class DataKaryawan {
         exit();
     }    
 
-    public function delete($id_karyawan){
-        $this->DataKaryawan->deleteDataKaryawan($id_karyawan); // Hapus data karyawan
+    public function delete($id_karyawan) {
+        session_start();
+        
+        // Hapus data karyawan dan simpan hasilnya
+        $deleted = $this->DataKaryawan->deleteDataKaryawan($id_karyawan);
+    
+        if ($deleted) {
+            $_SESSION['message'] = "Data karyawan berhasil dihapus."; // Pesan sukses
+        } else {
+            $_SESSION['message'] = "Data karyawan tidak dapat dihapus karena masih ada data absensi terkait."; // Pesan error
+        }
+    
         header('Location: /karyawan/index'); // Ganti URL setelah hapus
         exit();
-    }
+    }    
+    
 }
