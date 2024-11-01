@@ -15,7 +15,7 @@ class DataKaryawanModels extends Database
         $query = $this->conn->query("SELECT data_karyawan.id_karyawan, data_karyawan.nama, data_karyawan.jabatan, data_karyawan.gaji, data_karyawan.noHP, data_karyawan.email, data_karyawan.id_departemen,
                                         data_departemen.nama_departemen, data_departemen.job_desk
                                  FROM data_karyawan
-                                 JOINgi data_departemen ON data_karyawan.id_departemen = data_departemen.id_departemen");
+                                 JOIN data_departemen ON data_karyawan.id_departemen = data_departemen.id_departemen");
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -43,5 +43,10 @@ class DataKaryawanModels extends Database
     {
         $query = $this->conn->query("DELETE FROM data_karyawan WHERE id_karyawan = '$id_karyawan'");
         return $query;
+    }
+    public function DepartemenUse($id_departemen) {
+        $query = $this->conn->query("SELECT COUNT(*) FROM data_karyawan WHERE id_departemen = '$id_departemen'");
+        $result = $query ->fetchColumn();
+        return $result > 0;
     }
 }

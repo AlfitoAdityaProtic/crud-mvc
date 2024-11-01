@@ -48,7 +48,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="#">Home</a>
+                        <a class="nav-link text-dark" href="/home/index">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark" href="/absensi/index">Absensi</a>
@@ -66,7 +66,7 @@
     </nav>
 
     <div class="container mt-4">
-        <h1 class="pb-4 text-center">Data Absensi</h1>
+        <h1 class="pb-4 text-center">Data Departemen</h1>
         <div class="card">
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center mb-3">
@@ -74,6 +74,17 @@
                 </div>
 
                 <div class="table-responsive">
+                <?php
+                    if (isset($_SESSION['flash_message'])) {
+                        if ($_SESSION['flash_message']['type'] == 'success') {
+                            echo '<div class="alert alert-success" role="alert">' . $_SESSION['flash_message']['pesan'] . '</div>';
+                            unset($_SESSION['flash_message']);
+                        } elseif ($_SESSION['flash_message']['type'] == 'danger') {
+                            echo '<div class="alert alert-danger" role="alert">' . $_SESSION['flash_message']['pesan'] . '</div>';
+                            unset($_SESSION['flash_message']);
+                        }
+                    }
+                    ?>
                     <table class="table table-bordered table-striped table-hover" id="departemenTable">
                         <thead class="table-light">
                             <tr>

@@ -24,6 +24,10 @@ class DataAbsensi {
 
     public function store() {
         $this->AbsensiModel->tambahAbsensi();
+        $_SESSION['flash_message'] = [
+            'pesan' => 'Data Absensi Berhasil Ditambahkan',
+            'type' => 'success'
+        ];
         header('location: index');
     }
 
@@ -35,6 +39,10 @@ class DataAbsensi {
 
     public function update() {
         $this->AbsensiModel->updateAbsensi();
+        $_SESSION['flash_message'] = [
+            'pesan' => 'Data Absensi Berhasil Diubah',
+            'type' => 'success'
+        ];
         header('location: /absensi/index');
     }
 

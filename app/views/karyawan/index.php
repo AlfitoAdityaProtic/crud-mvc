@@ -12,7 +12,8 @@
         body.dark-mode {
             background-color: #343a40;
             color: white;
-            font-family: 'Poppins', sans-serif; /* Terapkan font Poppins */
+            font-family: 'Poppins', sans-serif;
+            /* Terapkan font Poppins */
         }
 
         table.dark-mode {
@@ -31,7 +32,8 @@
 
         /* Gaya umum untuk halaman */
         body {
-            font-family: 'Poppins', sans-serif; /* Terapkan font Poppins */
+            font-family: 'Poppins', sans-serif;
+            /* Terapkan font Poppins */
         }
 
         h1 {
@@ -41,16 +43,20 @@
             /* Ukuran font judul */
         }
 
-        .table th, .table td {
-            font-weight: 400; /* Berat font untuk tabel */
+        .table th,
+        .table td {
+            font-weight: 400;
+            /* Berat font untuk tabel */
         }
 
         .pagination .page-link {
-            font-weight: 600; /* Berat font untuk pagination */
+            font-weight: 600;
+            /* Berat font untuk pagination */
         }
 
         .pagination .active .page-link {
-            font-weight: 600; /* Berat font untuk pagination yang aktif */
+            font-weight: 600;
+            /* Berat font untuk pagination yang aktif */
         }
     </style>
 </head>
@@ -65,7 +71,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="#">Home</a>
+                        <a class="nav-link text-dark" href="/home/index">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark" href="/absensi/index">Absensi</a>
@@ -92,6 +98,17 @@
                 </div>
 
                 <div class="table-responsive">
+                    <?php
+                    if (isset($_SESSION['flash_message'])) {
+                        if ($_SESSION['flash_message']['type'] == 'success') {
+                            echo '<div class="alert alert-success" role="alert">' . $_SESSION['flash_message']['pesan'] . '</div>';
+                            unset($_SESSION['flash_message']);
+                        } elseif ($_SESSION['flash_message']['type'] == 'danger') {
+                            echo '<div class="alert alert-danger" role="alert">' . $_SESSION['flash_message']['pesan'] . '</div>';
+                            unset($_SESSION['flash_message']);
+                        }
+                    }
+                    ?>
                     <table class="table table-bordered table-striped table-hover" id="karyawanTable">
                         <thead class="table-light">
                             <tr>
@@ -107,7 +124,7 @@
                         </thead>
                         <tbody>
                             <?php
-                            $no = 1; 
+                            $no = 1;
                             foreach ($DataKaryawan as $row) {
                             ?>
                                 <tr>
@@ -120,7 +137,7 @@
                                     <td class="text-center"><?php echo $row['nama_departemen']; ?></td>
                                     <td class="text-center">
                                         <a href="/karyawan/edit/<?php echo $row['id_karyawan']; ?>" class="btn btn-warning btn-sm">Edit</a>
-                                        <a href="/karyawan/delete/<?php echo $row['id_karyawan']; ?>" class="btn btn-danger btn-sm">Delete</a>
+                                        <a href="/karyawan/delete/<?php echo $row['id_karyawan']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus Departemen ini?');">Delete</a>
                                     </td>
                                 </tr>
                             <?php

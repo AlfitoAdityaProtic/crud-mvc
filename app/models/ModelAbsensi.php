@@ -36,4 +36,11 @@ class DataAbsensiModels Extends Database {
         $query = $this->conn->query("DELETE FROM absensi_karyawan WHERE id_absensi = '$id_absensi'");
         return $query;
     }
+
+    // query tambahan
+    public function KaryawanUse($id_karyawan) {
+        $query = $this->conn->query("SELECT COUNT(*) FROM absensi_karyawan WHERE id_karyawan = '$id_karyawan'");
+        $result = $query ->fetchColumn();
+        return $result > 0;
+    }
 }

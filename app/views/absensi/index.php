@@ -93,6 +93,17 @@
                 </div>
 
                 <div class="table-responsive">
+                <?php
+                    if (isset($_SESSION['flash_message'])) {
+                        if ($_SESSION['flash_message']['type'] == 'success') {
+                            echo '<div class="alert alert-success" role="alert">' . $_SESSION['flash_message']['pesan'] . '</div>';
+                            unset($_SESSION['flash_message']);
+                        } elseif ($_SESSION['flash_message']['type'] == 'danger') {
+                            echo '<div class="alert alert-danger" role="alert">' . $_SESSION['flash_message']['pesan'] . '</div>';
+                            unset($_SESSION['flash_message']);
+                        }
+                    }
+                    ?>
                     <table class="table table-striped table-bordered" id="absensiTable">
                         <thead class="table-light">
                             <tr>

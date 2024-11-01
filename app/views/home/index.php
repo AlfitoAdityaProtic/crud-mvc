@@ -8,12 +8,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <title>Kelompok 3</title>
     <style>
-        /* Gaya untuk dark mode */
         body.dark-mode {
             background-color: #081024;
             color: white;
             font-family: 'Roboto', sans-serif;
-            /* Terapkan font Roboto */
         }
 
         table.dark-mode {
@@ -30,28 +28,22 @@
             border-color: #6c757d;
         }
 
-        /* Gaya umum untuk halaman */
         body {
             font-family: 'Roboto', sans-serif;
-            /* Terapkan font Roboto */
         }
 
         h1 {
             font-weight: 700;
-            /* Berat font untuk judul */
             font-size: 2rem;
-            /* Ukuran font judul */
         }
 
         .table th,
         .table td {
             font-weight: 400;
-            /* Berat font untuk tabel */
         }
 
         .btn {
             font-weight: 700;
-            /* Berat font untuk tombol */
         }
     </style>
 </head>
@@ -85,15 +77,24 @@
 
     <!-- Content Start -->
     <div class="container mt-4">
-        <h1 class="pb-4 text-start">Kelompok 3 Karyawan</h1>
-        <div class="card">
+        <div class="card transparent">
+            <h1 class="pb-4 text-center">Kelompok 3 Karyawan</h1>
             <div class="card-body">
-                
+                <h1 class="welcome-title text-center">Selamat Datang</h1>
+                <h1 class="welcome-title text-center">Sistem Informasi Karyawan</h1>
+                <div class="container text-center" data-aos="fade-up" data-aos-delay="100">
+                    <span class="typed" data-typed-items="Kelompok 3, Alfito Dwi Aditya, Alissya Iklima Nur Ramadani, Muhammad Subhi Adzani, Muhammad Rifandi">Kelompok 3
+                    </span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span
+                        class="typed-cursor typed-cursor--blink" aria-hidden="true"></span>
+                </div>
+                <h3 class="welcome-subtitle text-center">Kelas Teknik Informatika 2A</h3>
             </div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+
     <script>
         // Toggle Dark Mode
         const toggleButton = document.getElementById('darkModeToggle');
@@ -111,25 +112,13 @@
                 toggleButton.innerText = 'Dark Mode';
             }
         });
-
-        // Search Functionality
-        const searchInput = document.getElementById('searchInput');
-        const absensiTable = document.getElementById('absensiTable');
-
-        searchInput.addEventListener('keyup', function() {
-            const filter = searchInput.value.toLowerCase();
-            const rows = absensiTable.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
-
-            for (let i = 0; i < rows.length; i++) {
-                const cells = rows[i].getElementsByTagName('td');
-                for (let j = 1; j < cells.length - 1; j++) { // Mulai dari 1 untuk melewati No. dan Aksi
-                    if (cells[j].textContent.toLowerCase().includes(filter)) {
-                        match = true;
-                        break;
-                    }
-                }
-
-                rows[i].style.display = match ? '' : 'none'; // Tampilkan atau sembunyikan baris
-            }
+        new Typed('.typed', {
+            strings: ["Kelompok 3", "Alfito Dwi Aditya", "Alissya Iklima Nur Ramadani", "Muhammad Subhi Adzani", "Muhammad Rifandi"],
+            typeSpeed: 100,
+            backSpeed: 50,
+            loop: true
         });
     </script>
+</body>
+
+</html>
